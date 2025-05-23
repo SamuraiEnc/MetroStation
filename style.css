@@ -1,0 +1,168 @@
+/* Основные стили */
+:root {
+    --primary: #ff5e00;
+    --primary-dark: #cc4b00;
+    --secondary: #00a8ff;
+    --dark: #0f1923;
+    --darker: #0a121a;
+    --light: #ece8e1;
+    --success: #00ff9d;
+}
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: url('images/main_bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    -webkit-user-select: none; /* Для Safari и iOS */
+    -moz-user-select: none;    /* Для Firefox */
+    -ms-user-select: none;     /* Для IE/Edge */
+    user-select: none;        /* Стандартное свойство */
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Шапка */
+.header {
+    padding: 15px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff5722;
+}
+
+/* Основное содержимое */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-clicker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 150px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Счетчик */
+.pointer {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 2px solid #ff5722;
+}
+
+/* Круглая кнопка кликера */
+.bt-Click-dv {
+    width: 200px;
+    height: 200px;
+}
+
+.bt-click {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: url('images/bt_click.png') no-repeat center center;
+    background-size: cover;
+    border: 5px solid #ff5722;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+    font-size: 0;
+    outline: none;
+}
+
+.bt-click:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
+}
+
+/* Кнопка магазина */
+.shop {
+    width: 100%;
+}
+
+.bt-shop {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bt-shop:hover {
+    background-color: #e64a19;
+}
+
+/* Адаптация для планшетов */
+@media (min-width: 768px) {
+    .logo {
+        font-size: 2.5rem;
+    }
+    
+    .pointer {
+        font-size: 4rem;
+    }
+    
+    .bt-Click-dv {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .bt-shop {
+        padding: 20px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Адаптация для телефонов с маленьким экраном */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .pointer {
+        font-size: 2.5rem;
+    }
+    
+    .bt-Click-dv {
+        width: 120px;
+        height: 120px;
+    }
+}
