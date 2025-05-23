@@ -105,6 +105,7 @@ body {
 .bt-click:active {
     transform: scale(0.95);
     box-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
+    background-color: transparent; /* Убедимся, что фон не меняется */
 }
 
 /* Кнопка магазина */
