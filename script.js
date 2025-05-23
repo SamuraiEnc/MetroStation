@@ -2,6 +2,7 @@ const clickButton = document.querySelector('.bt-click');
 const txtPointer = document.querySelector('.pointer');
 let counter = 0;
 let click = 200;
+let lastTapTime = 0;
 
 // Для touch-устройств
 clickButton.addEventListener('touchstart', function(e) {
@@ -12,6 +13,11 @@ clickButton.addEventListener('touchstart', function(e) {
 
 clickButton.addEventListener('touchend', function(e) {
     e.preventDefault();
+
+    const currentTime = Date.now();
+    if (currentTime - lastTapTime < 300) return; // Защита от спама
+    lastTapTime = currentTime;
+    
     counter+=click;
     console.log(counter);
     txtPointer.textContent = formatNumber(counter);
