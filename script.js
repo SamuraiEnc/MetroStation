@@ -15,9 +15,6 @@ clickButton.addEventListener('touchstart', function(e) {
 
 clickButton.addEventListener('touchend', function(e) {
     e.preventDefault();
-    counter+=click;
-    console.log(counter);
-    txtPointer.textContent = formatNumber(counter);
     this.style.transform = 'scale(1)';
     this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
 });
