@@ -1,6 +1,7 @@
 const clickButton = document.querySelector('.bt-click');
 const txtPointer = document.querySelector('.pointer');
 let counter = 0;
+let click = 200;
 
 // Для touch-устройств
 clickButton.addEventListener('touchstart', function(e) {
@@ -11,6 +12,9 @@ clickButton.addEventListener('touchstart', function(e) {
 
 clickButton.addEventListener('touchend', function(e) {
     e.preventDefault();
+    counter+=click;
+    console.log(counter);
+    txtPointer.textContent = formatNumber(counter);
     this.style.transform = 'scale(1)';
     this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
 });
@@ -32,7 +36,7 @@ clickButton.addEventListener('mouseleave', function() {
 });
 
 clickButton.addEventListener('click', function(){
-    counter+=200;
+    counter+=click;
     console.log(counter);
     txtPointer.textContent = formatNumber(counter);
 });
