@@ -100,6 +100,11 @@ body {
     box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
     font-size: 0;
     outline: none;
+
+    -webkit-tap-highlight-color: transparent; /* Убирает синее подсвечивание на iOS */
+    tap-highlight-color: transparent; /* Для современных браузеров */
+    -webkit-user-select: none; /* Предотвращает выделение при долгом нажатии */
+    user-select: none;
 }
 
 .bt-click:active {
@@ -142,8 +147,8 @@ body {
     }
     
     .bt-Click-dv {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
     
     .bt-shop {
@@ -163,7 +168,7 @@ body {
     }
     
     .bt-Click-dv {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
     }
 }
