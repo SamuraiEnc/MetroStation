@@ -15,7 +15,7 @@ clickButton.addEventListener('touchend', function(e) {
     e.preventDefault();
 
     const currentTime = Date.now();
-    if (currentTime - lastTapTime < 300) return; // Защита от спама
+    if (currentTime - lastTapTime < 75) return; // Защита от спама
     lastTapTime = currentTime;
     
     counter+=click;
