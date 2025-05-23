@@ -6,6 +6,9 @@ let click = 200;
 // Для touch-устройств
 clickButton.addEventListener('touchstart', function(e) {
     e.preventDefault();
+    counter+=click;
+    console.log(counter);
+    txtPointer.textContent = formatNumber(counter);
     this.style.transform = 'scale(0.92)';
     this.style.boxShadow = '0 0 10px rgba(255, 87, 34, 0.8)';
 });
