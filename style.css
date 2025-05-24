@@ -179,6 +179,61 @@ body {
     border-radius: 10px;
 }
 
+.products-txt{
+    font-size: 1.7rem;
+    font-weight: 700;
+    font-family: 'Poetsen One', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.products {
+  display: grid;
+  width: 300px;
+    height: 300px;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 50px; /* Расстояние между элементами */
+}
+
+.product-item {
+  width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: #cc4b00;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+    font-size: 0;
+    outline: none;
+
+    -webkit-tap-highlight-color: transparent; /* Убирает синее подсвечивание на iOS */
+    -tap-highlight-color: transparent; /* Для современных браузеров */
+    -webkit-user-select: none; /* Предотвращает выделение при долгом нажатии */
+    user-select: none;
+}
+
+#helmet{
+     background: url('images/bt-helmet.png') no-repeat center center;
+     background-size: cover;
+}
+
+#backpack{
+     background: url('images/bt-backpack.png') no-repeat center center;
+     background-size: cover;
+}
+
+#armor{
+     background: url('images/bt-armor.png') no-repeat center center;
+     background-size: cover;
+}
+
+#mk{
+     background: url('images/bt-mk.png') no-repeat center center;
+     background-size: cover;
+}
+
 .back-shop {
     width: 100%;
 }
