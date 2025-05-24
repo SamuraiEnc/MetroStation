@@ -32,6 +32,7 @@ window.addEventListener('load', function() {
 
 // Автосохранение каждую секунду
 setInterval(saveGame, 1000);
+setInterval(updateDisplay, 1000);
 
 // Сохранение при закрытии
 window.addEventListener('beforeunload', saveGame);
