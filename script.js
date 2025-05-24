@@ -1,11 +1,26 @@
+//ИНИЦИАЛИЗАЦИЯ КНОПОК
 const clickButton = document.querySelector('.bt-click');
 const BtShop = document.querySelector('.bt-shop');
 const BtBack = document.querySelector('.bt-back');
+const BtBuyHelmet = document.querySelector('#helmet');
+const BtBuyArmor = document.querySelector('#armor');
+const BtBuyBackPack = document.querySelector('#backpack');
+const BtBuyMk = document.querySelector('#mk');
+
+//ЦЕНЫ
+const CostHelmet = 50000;
+const CostArmor = 100000;
+const CostBackPack = 75000;
+const CostMk = 75000;
+
+//ПРОЧЕЕ
 const txtPointer = document.querySelector('.pointer');
 let counter = 0;
-let click = 200;
+let click = 10000;
 let lastTapTime = 0;
 let ID = null;
+let touchStartY = 0;
+
 
 // Инициализация игры
 window.addEventListener('load', function() {
@@ -21,7 +36,7 @@ setInterval(saveGame, 1000);
 // Сохранение при закрытии
 window.addEventListener('beforeunload', saveGame);
 
-// Обработчики для сенсорных устройств
+// ДЛЯ MAIN.HTML
 if(clickButton){
     clickButton.addEventListener('touchstart', function(e) {
         e.preventDefault();
@@ -67,24 +82,103 @@ if(clickButton){
     });
 }
 
-BtBack.addEventListener('click', function() {
-    navigateToMain();
-});
+//ДЛЯ SHOP.HTML
+if(BtBack){
+    //КНОПКА НАЗАД В MAIN.HTML
+    BtBack.addEventListener('click', function() {
+        navigateToMain();
+    });
 
-BtBack.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    navigateToMain();
-});
+    BtBack.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        navigateToMain();
+    });
 
+    //ПОКУПКИ
+    //ПОКУПКА ШЛЕМА НАЧАЛО
+    BtBuyHelmet.addEventListener('click', function(){
+        BuySuplies(CostHelmet);
+    });
+
+    BtBuyHelmet.addEventListener('touchstart', handleTouchStart);
+
+    BtBuyHelmet.addEventListener('touchend', function(e){
+         if(isScroll(e)){
+            this.style.transform = 'scale(1)';
+            return;
+        } 
+        e.preventDefault();
+        this.style.transform = 'scale(1)';
+        BuySuplies(CostHelmet);
+    });
+    //ПОКУПКА ШЛЕМА КОНЕЦ
+
+    //ПОКУПКА БРОНИ НАЧАЛО
+     BtBuyArmor.addEventListener('click', function(){
+        BuySuplies(CostArmor);
+    });
+
+    BtBuyArmor.addEventListener('touchstart', handleTouchStart);
+
+    BtBuyArmor.addEventListener('touchend', function(e){
+         if(isScroll(e)){
+            this.style.transform = 'scale(1)';
+            return;
+        } 
+        e.preventDefault();
+        this.style.transform = 'scale(1)';
+        BuySuplies(CostArmor);
+    });
+    //ПОКУПКА БРОНИ КОНЕЦ
+
+    //ПОКУПКА РЮКЗАКА НАЧАЛО
+     BtBuyBackPack.addEventListener('click', function(){
+        BuySuplies(CostBackPack);
+    });
+
+    BtBuyBackPack.addEventListener('touchstart', handleTouchStart);
+
+    BtBuyBackPack.addEventListener('touchend', function(e){
+          if(isScroll(e)){
+            this.style.transform = 'scale(1)';
+            return;
+        } 
+        e.preventDefault();
+        this.style.transform = 'scale(1)';
+        BuySuplies(CostBackPack);
+    });
+    //ПОКУПКА РЮКЗАКА КОНЕЦ
+
+    //ПОКУПКА МК НАЧАЛО
+     BtBuyMk.addEventListener('click', function(){
+        BuySuplies(CostMk);
+    });
+
+     BtBuyMk.addEventListener('touchstart', handleTouchStart);
+
+    BtBuyMk.addEventListener('touchend', function(e){
+        if(isScroll(e)){
+            this.style.transform = 'scale(1)';
+            return;
+        } 
+        e.preventDefault();
+        this.style.transform = 'scale(1)';
+        BuySuplies(CostMk);
+    });
+    //ПОКУПКА МК КОНЕЦ
+}
+
+//ФУНКЦИИ ДЛЯ УДОБСТВА
 // Основная функция обработки клика
 function handleClick() {
     const currentTime = Date.now();
     if (currentTime - lastTapTime < 100) return;
-    lastTapTime = currentTime;
-    
-    counter += click;
-    updateDisplay();
+        lastTapTime = currentTime;
+            
+        counter += click;
+        updateDisplay();
 }
+
 
 // Обновление отображения счетчика
 function updateDisplay() {
@@ -119,7 +213,6 @@ function CheckID() {
 function saveGame() {
     const gameData = {
         counter: counter,
-        clickValue: click,
         lastSave: new Date().toISOString()
     };
     localStorage.setItem('metroStationSave_' + ID, JSON.stringify(gameData));
@@ -135,7 +228,6 @@ function loadGame() {
         try {
             const gameData = JSON.parse(savedData);
             counter = gameData.counter || 0;
-            click = gameData.clickValue || 200;
             updateDisplay();
             console.log('Игра загружена');
         } catch(e) {
@@ -150,4 +242,23 @@ function navigateToShop() {
 
 function navigateToMain() {
     window.location.href = 'main.html';
+}
+
+function BuySuplies(cost){
+    if(counter >= cost){
+        counter -= cost;
+        updateDisplay();
+    } else {
+        alert("Не достаточно RIP");
+    }
+}
+
+function isScroll(e) {
+    const touchY = e.changedTouches[0].clientY;
+    return Math.abs(touchY - touchStartY) > 10;
+}
+
+function handleTouchStart(e) {
+    touchStartY = e.touches[0].clientY;
+    this.style.transform = 'scale(0.92)';
 }
