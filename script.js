@@ -97,7 +97,7 @@ function CheckID() {
         do{
         ID = prompt("Введите ваш игровой ID", "") || "player_" + Math.random().toString(36).substr(2, 9);
         localStorage.setItem('metroStationID', ID);
-        } while(ID != null)
+        } while(!ID)
     }
 }
 
