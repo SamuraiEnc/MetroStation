@@ -1,4 +1,5 @@
 const clickButton = document.querySelector('.bt-click');
+const BtShop = document.querySelector('.bt-shop');
 const txtPointer = document.querySelector('.pointer');
 let counter = 0;
 let click = 200;
@@ -51,6 +52,14 @@ clickButton.addEventListener('mouseleave', function() {
 
 clickButton.addEventListener('click', function() {
     handleClick();
+});
+
+BtShop.addEventListener('click', function() {
+    alert(ID);
+});
+
+BtShop.addEventListener('touchend', function() {
+    alert(ID);
 });
 
 // Основная функция обработки клика
