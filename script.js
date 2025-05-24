@@ -247,6 +247,7 @@ function navigateToMain() {
 function BuySuplies(cost){
     if(counter >= cost){
         counter -= cost;
+        saveGame();
         updateDisplay();
     } else {
         alert("Не достаточно RIP");
