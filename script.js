@@ -1,5 +1,6 @@
 const clickButton = document.querySelector('.bt-click');
 const BtShop = document.querySelector('.bt-shop');
+const BtBack = document.querySelector('.bt-back');
 const txtPointer = document.querySelector('.pointer');
 let counter = 0;
 let click = 200;
@@ -55,11 +56,21 @@ clickButton.addEventListener('click', function() {
 });
 
 BtShop.addEventListener('click', function() {
-    alert(ID);
+    navigateToShop();
 });
 
-BtShop.addEventListener('touchend', function() {
-    alert(ID);
+BtShop.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    navigateToShop();
+});
+
+BtBack.addEventListener('click', function() {
+    navigateToMain();
+});
+
+BtBack.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    navigateToMain();
 });
 
 // Основная функция обработки клика
@@ -74,7 +85,7 @@ function handleClick() {
 
 // Обновление отображения счетчика
 function updateDisplay() {
-    txtPointer.textContent = formatNumber(counter);
+    txtPointer.textContent ="RIP: " + formatNumber(counter);
 }
 
 // Форматирование чисел
@@ -128,4 +139,12 @@ function loadGame() {
             console.error('Ошибка загрузки:', e);
         }
     }
+}
+
+function navigateToShop() {
+    window.location.href = 'shop.html';
+}
+
+function navigateToMain() {
+    window.location.href = 'main.html';
 }
