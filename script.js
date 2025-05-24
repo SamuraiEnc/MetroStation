@@ -22,47 +22,50 @@ setInterval(saveGame, 1000);
 window.addEventListener('beforeunload', saveGame);
 
 // Обработчики для сенсорных устройств
-clickButton.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    this.style.transform = 'scale(0.92)';
-    this.style.boxShadow = '0 0 10px rgba(255, 87, 34, 0.8)';
-});
+if(clickButton){
+    clickButton.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        this.style.transform = 'scale(0.92)';
+        this.style.boxShadow = '0 0 10px rgba(255, 87, 34, 0.8)';
+    });
 
-clickButton.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    handleClick();
-    this.style.transform = 'scale(1)';
-    this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
-});
+    clickButton.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        handleClick();
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
+    });
 
-// Обработчики для компьютера
-clickButton.addEventListener('mousedown', function() {
-    this.style.transform = 'scale(0.92)';
-    this.style.boxShadow = '0 0 10px rgba(255, 87, 34, 0.8)';
-});
+    // Обработчики для компьютера
+    clickButton.addEventListener('mousedown', function() {
+        this.style.transform = 'scale(0.92)';
+        this.style.boxShadow = '0 0 10px rgba(255, 87, 34, 0.8)';
+    });
 
-clickButton.addEventListener('mouseup', function() {
-    this.style.transform = 'scale(1)';
-    this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
-});
+    clickButton.addEventListener('mouseup', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
+    });
 
-clickButton.addEventListener('mouseleave', function() {
-    this.style.transform = 'scale(1)';
-    this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
-});
+    clickButton.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
+    });
 
-clickButton.addEventListener('click', function() {
-    handleClick();
-});
+    clickButton.addEventListener('click', function() {
+        handleClick();
+    });
 
-BtShop.addEventListener('click', function() {
-    navigateToShop();
-});
 
-BtShop.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    navigateToShop();
-});
+    BtShop.addEventListener('click', function() {
+        navigateToShop();
+    });
+
+    BtShop.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        navigateToShop();
+    });
+}
 
 BtBack.addEventListener('click', function() {
     navigateToMain();
