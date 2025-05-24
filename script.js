@@ -90,13 +90,13 @@ function formatNumber(num) {
 
 // Проверка и установка ID
 function CheckID() {
-    const savedID = localStorage.getItem('metroStationID');
+    const savedID = localStorage.getItem('metroStationID1');
     if (savedID) {
         ID = savedID;
     } else {
         do{
-        ID = prompt("Введите ваш игровой ID", "") || "player_" + Math.random().toString(36).substr(2, 9);
-        localStorage.setItem('metroStationID', ID);
+        ID = prompt("Введите ваш игровой ID", "");
+        localStorage.setItem('metroStationID1', ID);
         } while(!ID)
     }
 }
