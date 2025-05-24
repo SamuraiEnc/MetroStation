@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app">
+    <div class="app" id="app-shop">
 
         <header class="header">
 
@@ -24,7 +24,7 @@
         </header>
 
  <main class="main-content">
-            <div class="main-clicker">
+            <div class="main-clicker" id="main-clicker-shop">
                 <div class="shop-bar">
                     <div class="back-shop">
                         <button class="bt-back" type="button">Back</button>
@@ -33,10 +33,22 @@
                 </div>
                 <div class="products-txt">Products</div>
                 <div class="products">
-                    <button class="product-item" id="helmet" type="button">Товар 1</button>
-                    <button class="product-item" id="armor" type="button">Товар 2</button>
-                    <button class="product-item" id="backpack" type="button">Товар 3</button>
-                    <button class="product-item" id="mk" type="button">Товар 4</button>
+                    <div class="prod-section">
+                        <button class="product-item" id="helmet" type="button">Товар 1</button>
+                        <div class="prod-cost">50k</div>
+                    </div>
+                    <div class="prod-section">
+                        <button class="product-item" id="armor" type="button">Товар 2</button>
+                        <div class="prod-cost">100k</div>
+                    </div>
+                    <div class="prod-section">
+                        <button class="product-item" id="backpack" type="button">Товар 3</button>
+                        <div class="prod-cost">75k</div>
+                    </div>
+                    <div class="prod-section">
+                        <button class="product-item" id="mk" type="button">Товар 4</button>
+                        <div class="prod-cost">75k</div>
+                    </div>
                 </div>
                 <div class="products-txt">Cases</div>
                 <div class="products">
