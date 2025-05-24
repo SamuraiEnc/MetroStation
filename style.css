@@ -159,6 +159,70 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* Shop */
+
+.shop-bar{
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#txtPointer{
+     font-size: 1.7rem;
+    font-weight: 700;
+    font-family: 'Poetsen One', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.back-shop {
+    width: 100%;
+}
+
+.bt-back {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bt-back:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Анимация при нажатии */
+.bt-back:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект "пульсации" */
+.bt-back::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+}
+
 
 /* Адаптация для планшетов */
 @media (min-width: 768px) {
