@@ -7,6 +7,11 @@ const BtBuyArmor = document.querySelector('#armor');
 const BtBuyBackPack = document.querySelector('#backpack');
 const BtBuyMk = document.querySelector('#mk');
 
+const modal = document.getElementById('purchaseModal');
+const confirmBtn = document.getElementById('confirmBtn');
+const cancelBtn = document.getElementById('cancelBtn');
+
+
 //ЦЕНЫ
 const CostHelmet = 50000;
 const CostArmor = 100000;
@@ -20,6 +25,7 @@ let click = 10000;
 let lastTapTime = 0;
 let ID = null;
 let touchStartY = 0;
+let confirm;
 
 
 // Инициализация игры
@@ -98,7 +104,8 @@ if(BtBack){
     //ПОКУПКИ
     //ПОКУПКА ШЛЕМА НАЧАЛО
     BtBuyHelmet.addEventListener('click', function(){
-        BuySuplies(CostHelmet);
+        modal.style.display = 'flex';
+        confirm = CostHelmet;
     });
 
     BtBuyHelmet.addEventListener('touchstart', handleTouchStart);
@@ -110,13 +117,15 @@ if(BtBack){
         } 
         e.preventDefault();
         this.style.transform = 'scale(1)';
-        BuySuplies(CostHelmet);
+        modal.style.display = 'flex';
+        confirm = CostHelmet;
     });
     //ПОКУПКА ШЛЕМА КОНЕЦ
 
     //ПОКУПКА БРОНИ НАЧАЛО
      BtBuyArmor.addEventListener('click', function(){
-        BuySuplies(CostArmor);
+        modal.style.display = 'flex';
+       confirm = CostArmor;
     });
 
     BtBuyArmor.addEventListener('touchstart', handleTouchStart);
@@ -128,13 +137,15 @@ if(BtBack){
         } 
         e.preventDefault();
         this.style.transform = 'scale(1)';
-        BuySuplies(CostArmor);
+        modal.style.display = 'flex';
+        confirm = CostArmor;
     });
     //ПОКУПКА БРОНИ КОНЕЦ
 
     //ПОКУПКА РЮКЗАКА НАЧАЛО
      BtBuyBackPack.addEventListener('click', function(){
-        BuySuplies(CostBackPack);
+        modal.style.display = 'flex';
+        confirm = CostBackPack;
     });
 
     BtBuyBackPack.addEventListener('touchstart', handleTouchStart);
@@ -146,13 +157,15 @@ if(BtBack){
         } 
         e.preventDefault();
         this.style.transform = 'scale(1)';
-        BuySuplies(CostBackPack);
+        modal.style.display = 'flex';
+        confirm = CostBackPack;
     });
     //ПОКУПКА РЮКЗАКА КОНЕЦ
 
     //ПОКУПКА МК НАЧАЛО
      BtBuyMk.addEventListener('click', function(){
-        BuySuplies(CostMk);
+        modal.style.display = 'flex';
+        confirm = CostMk;
     });
 
      BtBuyMk.addEventListener('touchstart', handleTouchStart);
@@ -164,10 +177,38 @@ if(BtBack){
         } 
         e.preventDefault();
         this.style.transform = 'scale(1)';
-        BuySuplies(CostMk);
+        modal.style.display = 'flex';
+        confirm = CostMk;
     });
     //ПОКУПКА МК КОНЕЦ
+
+    confirmBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    BuySuplies();
+});
+
+// Обработка отмены
+cancelBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    alert('Покупка отменена!');
+});
+
+    confirmBtn.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    modal.style.display = 'none';
+    BuySuplies();
+});
+
+// Обработка отмены
+cancelBtn.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    modal.style.display = 'none';
+    alert('Покупка отменена!');
+});
+
 }
+
+
 
 //ФУНКЦИИ ДЛЯ УДОБСТВА
 // Основная функция обработки клика
@@ -245,14 +286,16 @@ function navigateToMain() {
     window.location.href = 'main.html';
 }
 
-function BuySuplies(cost){
-    if(counter >= cost){
-        counter -= cost;
+function BuySuplies() {
+    if (counter >= confirm) {
+        counter -= confirm;
         saveGame();
         updateDisplay();
+        alert('Покупка успешна! Ваша заявка отправлна на выдачу. Выдача происходит каждый день в 18:00 по МСК');
     } else {
-        alert("Не достаточно RIP");
+        alert('Недостаточно RIP для покупки!');
     }
+    confirm = 0; // Сбрасываем значение
 }
 
 function isScroll(e) {
