@@ -52,23 +52,52 @@
                 </div>
                 <div class="products-txt">Cases</div>
                 <div class="products">
-                    <div class="product-item" id="helmet">Товар 1</div>
-                    <div class="product-item" id="armor">Товар 2</div>
-                    <div class="product-item" id="backpack">Товар 3</div>
-                    <div class="product-item" id="mk">Товар 4</div>
+                    <div class="prod-section">
+                        <button class="product-item" id="helmetCase" type="button">Товар 1</button>
+                        <div class="prod-cost">20k</div>
+                    </div>
+                    <div class="prod-section">
+                        <button class="product-item" id="armorCase" type="button">Товар 2</button>
+                        <div class="prod-cost">50k</div>
+                    </div>
+                    <div class="prod-section">
+                        <button class="product-item" id="backpackCase" type="button">Товар 3</button>
+                        <div class="prod-cost">30k</div>
+                    </div>
+                    <div class="prod-section">
+                        <button class="product-item" id="mkCase" type="button">Товар 4</button>
+                        <div class="prod-cost">30k</div>
+                    </div>
                 </div>
 
             </div>
 
-             <div id="purchaseModal" class="modal">
-                    <div class="modal-content">
-                        <p class="confirm-txt">Подтвердить покупку?</p>
-                        <div class="modal-buttons">
-                            <button id="confirmBtn">Yes</button>
-                            <button id="cancelBtn">No</button>
-                        </div>
+            <div id="purchaseModal" class="modal">
+                <div class="modal-content">
+                    <p class="confirm-txt">Подтвердить покупку?</p>
+                    <div class="modal-buttons">
+                        <button id="confirmBtn">Yes</button>
+                        <button id="cancelBtn">No</button>
                     </div>
                 </div>
+            </div> 
+
+             <div id="purchaseModalCase" class="modalCase">
+                <div class="modal-contentCase">
+                    <p class="confirm-txtCase">Подтвердить покупку?</p>
+                    <p class="confirm-txtCase">Шансы выпадения:</p>
+                    <div class="confirm-info" id="FirstSP">0</div>
+                    <div class="confirm-info" id="SecondSP">0</div>
+                    <div class="confirm-info" id="ThirdSP">0</div>
+                    <div class="confirm-info" id="ForthSP">0</div>
+                    <div class="modal-buttonsCase">
+                        <button id="confirmBtnCase">Yes</button>
+                        <button id="cancelBtnCase">No</button>
+                    </div>
+                </div>
+            </div> 
+
+                
 
         </main>
     </div>
