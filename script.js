@@ -2,10 +2,25 @@
 const clickButton = document.querySelector('.bt-click');
 const BtShop = document.querySelector('.bt-shop');
 const BtBack = document.querySelector('.bt-back');
+//КНОПКИ ДЛЯ ПОКУПКИ ВЕЩЕЙ
 const BtBuyHelmet = document.querySelector('#helmet');
 const BtBuyArmor = document.querySelector('#armor');
 const BtBuyBackPack = document.querySelector('#backpack');
 const BtBuyMk = document.querySelector('#mk');
+//КНОПКИ ДЛЯ ПОКУПКИ КЕЙСОВ
+const BtBuyHelmetCase = document.querySelector('#helmetCase');
+const BtBuyArmorCase = document.querySelector('#armorCase');
+const BtBuyBackPackCase = document.querySelector('#backpackCase');
+const BtBuyMkCase = document.querySelector('#mkCase');
+
+const modalCase = document.getElementById('purchaseModalCase');
+const confirmBtnCase = document.getElementById('confirmBtnCase');
+const cancelBtnCase = document.getElementById('cancelBtnCase');
+
+const TxtInfoFirst = document.querySelector('#FirstSP');
+const TxtInfoSecond = document.querySelector('#SecondSP');
+const TxtInfoThird = document.querySelector('#ThirdSP');
+const TxtInfoForth = document.querySelector('#ForthSP');
 
 const modal = document.getElementById('purchaseModal');
 const confirmBtn = document.getElementById('confirmBtn');
@@ -18,6 +33,32 @@ const CostArmor = 100000;
 const CostBackPack = 75000;
 const CostMk = 75000;
 
+//ШАНСЫ
+const CaseArmorInfo1 = "Броня ур.3 - 40%";
+const CaseArmorInfo2 = "Броня ур.4 - 30%";
+const CaseArmorInfo3 = "Броня ур.5 - 20%";
+const CaseArmorInfo4 = "Броня ур.6 - 10%";
+
+let CaseHelmetInfo1 = "Шлем ур.3 - 40%";
+let CaseHelmetInfo2 = "Шлем ур.4 - 30%";
+let CaseHelmetInfo3 = "Шлем ур.5 - 20%";
+let CaseHelmetInfo4 = "Шлем ур.6 - 10%";
+
+const CaseBackPackInfo1 = "Рюкзак ур.3 - 40%";
+const CaseBackPackInfo2 = "Рюкзак ур.4 - 30%";
+const CaseBackPackInfo3 = "Рюкзак ур.5 - 20%";
+const CaseBackPackInfo4 = "Рюкзак ур.6 - 10%";
+
+const CaseMkInfo1 = "Mk отремнт. - 40%";
+const CaseMkInfo2 = "Mk целая - 30%";
+const CaseMkInfo3 = "Mk улучшен. - 20%";
+const CaseMkInfo4 = "Mk высш.кач - 10%";
+
+const CostHelmetCase = 20000;
+const CostArmorCase = 50000;
+const CostBackPackCase = 30000;
+const CostMkCase = 30000;
+
 //ПРОЧЕЕ
 const txtPointer = document.querySelector('.pointer');
 let counter = 0;
@@ -26,6 +67,11 @@ let lastTapTime = 0;
 let ID = null;
 let touchStartY = 0;
 let confirm;
+
+let hm3 = "Шлем ур.3";
+let hm4 = "Шлем ур.4";
+let hm5 = "Шлем ур.5";
+let hm6 = "Шлем ур.6";
 
 
 // Инициализация игры
@@ -182,6 +228,21 @@ if(BtBack){
     });
     //ПОКУПКА МК КОНЕЦ
 
+//СИСТЕМА КЕЙСОВ НАЧАЛО
+BtBuyHelmetCase.addEventListener('click', function(){
+        sp1 = hm3;
+        sp2 = hm4;
+        sp3 = hm5;
+        sp4 = hm6;
+        confirm = CostHelmetCase;
+        modalCase.style.display = 'flex';
+        TxtInfoFirst.textContent = CaseHelmetInfo1;
+        TxtInfoSecond.textContent = CaseHelmetInfo2;
+        TxtInfoThird.textContent = CaseHelmetInfo3;
+        TxtInfoForth.textContent = CaseHelmetInfo4;
+    });
+//СИСТЕМА КЕЙСОВ КОНЕЦ
+
     confirmBtn.addEventListener('click', function() {
     modal.style.display = 'none';
     BuySuplies();
@@ -203,6 +264,30 @@ cancelBtn.addEventListener('click', function() {
 cancelBtn.addEventListener('touchend', function(e) {
     e.preventDefault();
     modal.style.display = 'none';
+    alert('Покупка отменена!');
+});
+
+    confirmBtnCase.addEventListener('click', function() {
+    modalCase.style.display = 'none';
+    BuyCase(sp1, sp2, sp3, sp4);
+});
+
+// Обработка отмены
+cancelBtnCase.addEventListener('click', function() {
+    modalCase.style.display = 'none';
+    alert('Покупка отменена!');
+});
+
+confirmBtnCase.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    modalCase.style.display = 'none';
+    BuyCase(sp1, sp2, sp3, sp4);
+});
+
+// Обработка отмены
+cancelBtnCase.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    modalCase.style.display = 'none';
     alert('Покупка отменена!');
 });
 
@@ -298,6 +383,18 @@ function BuySuplies() {
     confirm = 0; // Сбрасываем значение
 }
 
+function BuyCase(sp1, sp2, sp3, sp4) {
+    if (counter >= confirm) {
+        counter -= confirm;
+        saveGame();
+        updateDisplay();
+        CaseSystem(sp1, sp2, sp3, sp4);
+    } else {
+        alert('Недостаточно RIP для покупки!');
+    }
+    confirm = 0; // Сбрасываем значение
+}
+
 function isScroll(e) {
     const touchY = e.changedTouches[0].clientY;
     return Math.abs(touchY - touchStartY) > 10;
@@ -306,4 +403,19 @@ function isScroll(e) {
 function handleTouchStart(e) {
     touchStartY = e.touches[0].clientY;
     this.style.transform = 'scale(0.92)';
+}
+
+//ФУНКЦИЯ КЕЙСОВ
+function CaseSystem(firstSup, secondSup, thirdSup, forthSup,){
+    let result = Math.floor(Math.random() * 10) + 1;
+
+    if(result >=1 && result <= 4){
+        alert('Вы получили ' + firstSup)
+    } else if(result >=5 && result <= 7){
+        alert('Вы получили ' + secondSup)
+    } else if(result >=8 && result <= 9){
+        alert('Вы получили ' + thirdSup)
+    } else if(result == 10){
+        alert('Вы получили ' + forthSup)
+    }
 }
