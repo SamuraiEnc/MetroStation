@@ -1,6 +1,7 @@
 //ИНИЦИАЛИЗАЦИЯ КНОПОК
 const clickButton = document.querySelector('.bt-click');
 const BtShop = document.querySelector('.bt-shop');
+const BtChangeID = document.querySelector('.bt-change-id');
 const BtBack = document.querySelector('.bt-back');
 //КНОПКИ ДЛЯ ПОКУПКИ ВЕЩЕЙ
 const BtBuyHelmet = document.querySelector('#helmet');
@@ -175,9 +176,9 @@ if(clickButton){
         navigateToShop();
     });
 
-    BtShop.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        navigateToShop();
+    BtChangeID.addEventListener('click', function() {
+       ChangeID();
+       alert("Ваш игровой ID " + ID)
     });
 }
 
@@ -368,6 +369,13 @@ function CheckID() {
         localStorage.setItem('metroStationID1', ID);
         } while(!ID)
     }
+}
+
+function ChangeID() {
+            do{
+            ID = prompt("Введите ваш игровой ID", "");
+            localStorage.setItem('metroStationID1', ID);
+            } while(!ID)      
 }
 
 // Сохранение игры
