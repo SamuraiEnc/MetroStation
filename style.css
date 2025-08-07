@@ -1,0 +1,525 @@
+/* Основные стили */
+:root {
+    --primary: #ff5e00;
+    --primary-dark: #cc4b00;
+    --secondary: #00a8ff;
+    --dark: #0f1923;
+    --darker: #0a121a;
+    --light: #ece8e1;
+    --success: #00ff9d;
+}
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', 'Poetsen One', sans-serif;
+    background: url('images/main_bg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    -webkit-user-select: none; /* Для Safari и iOS */
+    -moz-user-select: none;    /* Для Firefox */
+    -ms-user-select: none;     /* Для IE/Edge */
+    user-select: none;        /* Стандартное свойство */
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Шапка */
+.header {
+    padding: 15px 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff5722;
+}
+
+/* Основное содержимое */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-clicker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 130px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#main-clicker-shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Счетчик */
+.pointer {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Poetsen One', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 30px;
+    border-radius: 10px;
+   
+}
+
+/* Круглая кнопка кликера */
+.bt-Click-dv {
+    width: 200px;
+    height: 200px;
+}
+
+.bt-click {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: url('images/bt_clicker.png') no-repeat center center;
+    border: #cc4b00;
+    background-size: cover;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+    font-size: 0;
+    outline: none;
+
+    -webkit-tap-highlight-color: transparent; /* Убирает синее подсвечивание на iOS */
+    -tap-highlight-color: transparent; /* Для современных браузеров */
+    -webkit-user-select: none; /* Предотвращает выделение при долгом нажатии */
+    user-select: none;
+}
+
+.bt-click:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
+    background-color: transparent; /* Убедимся, что фон не меняется */
+}
+
+.btns-click{
+    width: 100%;
+}
+
+/* Кнопка магазина */
+.shop, .change-id {
+    width: 100%;
+}
+
+.change-id{
+   margin-top: 50px;
+}
+
+.bt-shop, .bt-change-id {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bt-shop:hover, .bt-change-id:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Анимация при нажатии */
+.bt-shop:active,.bt-change-id:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект "пульсации" */
+.bt-shop::after, .bt-change-id:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+}
+
+/* Shop */
+
+.shop-bar{
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#txtPointer{
+     font-size: 1.7rem;
+    font-weight: 700;
+    font-family: 'Poetsen One', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.products-txt{
+    font-size: 1.7rem;
+    font-weight: 700;
+    font-family: 'Poetsen One', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px 30px;
+    border-radius: 10px;
+}
+
+.products {
+  display: grid;
+  width: 300px;
+    height: 300px;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 50px; /* Расстояние между элементами */
+}
+
+.product-item {
+  width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: #cc4b00;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+    font-size: 0;
+    outline: none;
+
+    -webkit-tap-highlight-color: transparent; /* Убирает синее подсвечивание на iOS */
+    -tap-highlight-color: transparent; /* Для современных браузеров */
+    -webkit-user-select: none; /* Предотвращает выделение при долгом нажатии */
+    user-select: none;
+}
+
+.product-item:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
+    background-color: transparent; /* Убедимся, что фон не меняется */
+}
+
+.prod-cost{
+    font-family: 'Poetsen One', sans-serif;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+#helmet{
+     background: url('images/bt-helmet.png') no-repeat center center;
+     background-size: cover;
+}
+
+#backpack{
+     background: url('images/bt-backpack.png') no-repeat center center;
+     background-size: cover;
+}
+
+#armor{
+     background: url('images/bt-armor.png') no-repeat center center;
+     background-size: cover;
+}
+
+#mk{
+     background: url('images/bt-mk.png') no-repeat center center;
+     background-size: cover;
+}
+
+#helmetCase{
+     background: url('images/bt-helmet.png') no-repeat center center;
+     background-size: cover;
+}
+
+#backpackCase{
+     background: url('images/bt-backpack.png') no-repeat center center;
+     background-size: cover;
+}
+
+#armorCase{
+     background: url('images/bt-armor.png') no-repeat center center;
+     background-size: cover;
+}
+
+#mkCase{
+     background: url('images/bt-mk.png') no-repeat center center;
+     background-size: cover;
+}
+
+
+.back-shop {
+    width: 100%;
+}
+
+.bt-back {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bt-back:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Анимация при нажатии */
+.bt-back:active {
+   transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект "пульсации" */
+.bt-back::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.confirm-txt{
+    color: #ff5722;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmBtn {
+    background: #4CAF50;
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+#cancelBtn {
+    background: #f44336;
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.modalCase {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-contentCase {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.confirm-txtCase, .confirm-info{
+    color: #ff5722;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.modal-buttonsCase {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-buttonsCase button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmBtnCase {
+    background: #4CAF50;
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+#cancelBtnCase {
+    background: #f44336;
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.modalCaseConf {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-contentCaseConf {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.confirm-txtCaseConf{
+    color: #ff5722;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.modal-buttonsCaseConf {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-buttonsCaseConf button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmBtnCaseConf {
+    background: #4CAF50;
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+#cancelBtnCaseConf {
+    background: #f44336;
+    color: white;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+
+
+/* Адаптация для планшетов */
+@media (min-width: 768px) {
+    .logo {
+        font-size: 2.5rem;
+    }
+    
+    .pointer {
+        font-size: 4rem;
+    }
+    
+    .bt-Click-dv {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .bt-shop {
+        padding: 20px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Адаптация для телефонов с маленьким экраном */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .pointer {
+        font-size: 2.5rem;
+    }
+    
+    .bt-Click-dv {
+        width: 200px;
+        height: 200px;
+    }
+}

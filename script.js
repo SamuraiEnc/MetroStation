@@ -472,4 +472,8 @@ function sellSup(){
     saveGame();
     updateDisplay();
     sell == 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 297397eee37492b7bce09f932f8402fca7b6574b
