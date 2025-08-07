@@ -1,0 +1,114 @@
+@use 'colors' as col;
+@use 'breakpoints' as break;
+@use 'mixins' as mix;
+
+* {
+    @include mix.highlight-none();
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition:  0.3s ease;
+    font-family: 'Orbitron', 'Poetsen One', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+body {
+    background-color: col.$bg-body;
+    color: col.$white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+
+    .header{
+        @include mix.d-center(space-between);
+        width: 100%;
+        padding: 15px 20px;
+
+        &__logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+
+            & span{
+                color: col.$orange;
+            }
+        }
+
+        &__person-account{
+            cursor: pointer;
+
+            &:hover{
+                color: col.$orange;
+            }
+
+            &:active{
+                scale: 0.95;
+            }
+        }
+    }
+
+    .main{
+        @include mix.d-center();
+        padding: 20px;
+
+        &__container{
+            @include mix.d-center();
+            flex-direction: column;
+            width: 800px;
+            gap: 150px;
+
+            &__pointer{
+                font-size: 4rem;
+            }
+
+            &__click-section{
+                height: 300px;
+                width: 300px;
+                border-radius: 50%;
+
+                &__btn{
+                    background: url('../images/bt_clicker.png');
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    border: none;
+                    cursor: pointer;
+                    outline: none;
+                    transition:  0.1s ease;
+
+                    &:active{
+                        transform: scale(0.95);
+                    }
+                }
+            }
+
+            &__btn-section{
+                @include mix.d-center();
+                width: 100%;
+
+                &__shop-section{
+                    @include mix.d-center();
+                    width: 100%;
+
+                    &__btn{
+                        @include mix.buttons-def();
+                        background-color: col.$orange;
+                        color: col.$white;
+                        font-size: 1.5rem;
+
+                        &:hover{
+                            background-color: transparent;
+                            color: col.$orange;
+                            border: 1px col.$orange solid;
+                        }
+
+                        &:active{
+                            scale: 0.95;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

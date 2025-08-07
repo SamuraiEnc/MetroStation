@@ -1,0 +1,109 @@
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+  font-family: "Orbitron", "Poetsen One", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  background-color: rgb(31, 44, 58);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+body .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 20px;
+}
+body .header__logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+body .header__logo span {
+  color: #ff5722;
+}
+body .header__person-account {
+  cursor: pointer;
+}
+body .header__person-account:hover {
+  color: #ff5722;
+}
+body .header__person-account:active {
+  scale: 0.95;
+}
+body .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+body .main__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 800px;
+  gap: 150px;
+}
+body .main__container__pointer {
+  font-size: 4rem;
+}
+body .main__container__click-section {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+}
+body .main__container__click-section__btn {
+  background: url("../images/bt_clicker.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.1s ease;
+}
+body .main__container__click-section__btn:active {
+  transform: scale(0.95);
+}
+body .main__container__btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+body .main__container__btn-section__shop-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+body .main__container__btn-section__shop-section__btn {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ff5722;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+body .main__container__btn-section__shop-section__btn:hover {
+  background-color: transparent;
+  color: #ff5722;
+  border: 1px #ff5722 solid;
+}
+body .main__container__btn-section__shop-section__btn:active {
+  scale: 0.95;
+}/*# sourceMappingURL=styles-main.css.map */
